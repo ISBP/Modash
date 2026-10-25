@@ -1,0 +1,280 @@
+[gd_scene format=3 uid="uid://c55kkun5uow0l"]
+
+[ext_resource type="Script" uid="uid://chd1piu8gfd3s" path="res://Scripts/Window.gd" id="1_efths"]
+[ext_resource type="Texture2D" uid="uid://butki05ht72ky" path="res://Assets/grass.png" id="2_30sqi"]
+[ext_resource type="Texture2D" uid="uid://mbnkmsp4wxhd" path="res://Assets/Home.png" id="3_gvfsm"]
+[ext_resource type="Script" uid="uid://l2jcjxysmy6g" path="res://Scenes/home.gd" id="3_r37kj"]
+[ext_resource type="Script" uid="uid://b2hwjqg6ojj56" path="res://Scenes/web.gd" id="4_gs3ir"]
+[ext_resource type="FontFile" uid="uid://bewmep78gpowt" path="res://Assets/LeagueSpartan-Bold.otf" id="5_23jqw"]
+[ext_resource type="Texture2D" uid="uid://ce53lj861loei" path="res://Assets/AlmondDash3.png" id="6_gs3ir"]
+[ext_resource type="Texture2D" uid="uid://dbobu3kcawsax" path="res://Assets/City_Gui.png" id="7_23jqw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_65fuv"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_kj5ws"]
+font = ExtResource("5_23jqw")
+font_size = 24
+
+[node name="Window" type="Control" unique_id=1343021000]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="tool" type="Control" parent="." unique_id=44177196]
+anchors_preset = 0
+offset_top = -1040.0
+offset_right = 40.0
+offset_bottom = -1000.0
+script = ExtResource("1_efths")
+
+[node name="HeightBox" type="ColorRect" parent="tool" unique_id=470354640]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 34.0
+offset_right = 341.0
+offset_bottom = 134.0
+color = Color(0.41368303, 0.4136831, 0.41368303, 1)
+
+[node name="Label" type="Label" parent="tool/HeightBox" unique_id=1736342351]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 25.0
+offset_right = 216.0
+offset_bottom = 149.0
+text = "Height:"
+label_settings = SubResource("LabelSettings_65fuv")
+
+[node name="Height" type="TextEdit" parent="tool/HeightBox" unique_id=2072376911]
+z_index = 3
+layout_mode = 0
+offset_left = 140.525
+offset_top = 30.0
+offset_right = 271.5256
+offset_bottom = 68.0
+text = "5 Feet"
+
+[node name="LengthBox" type="ColorRect" parent="tool" unique_id=1682873929]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 152.0
+offset_right = 341.0
+offset_bottom = 252.0
+color = Color(0.41368303, 0.4136831, 0.41368303, 1)
+
+[node name="Label" type="Label" parent="tool/LengthBox" unique_id=1914490340]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 25.0
+offset_right = 216.0
+offset_bottom = 149.0
+text = "Length:"
+label_settings = SubResource("LabelSettings_65fuv")
+
+[node name="Length" type="TextEdit" parent="tool/LengthBox" unique_id=61727759]
+z_index = 3
+layout_mode = 0
+offset_left = 140.525
+offset_top = 30.0
+offset_right = 271.5256
+offset_bottom = 68.0
+text = "5 Feet"
+
+[node name="info" type="ColorRect" parent="tool" unique_id=1759435382]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 276.0
+offset_right = 343.0
+offset_bottom = 670.0
+color = Color(0.41368303, 0.4136831, 0.41368303, 1)
+
+[node name="waterUsage" type="Label" parent="tool/info" unique_id=214463931]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 106.0
+offset_right = 283.0
+offset_bottom = 283.0
+text = "Your lawn needs 
+
+gallons of water
+a year "
+label_settings = SubResource("LabelSettings_65fuv")
+
+[node name="GrassBounds" type="Control" parent="tool" unique_id=226799468]
+clip_contents = true
+layout_mode = 1
+anchor_right = 5.339
+anchor_bottom = 3.5470002
+offset_left = 364.0
+offset_top = 58.0
+offset_right = 825.44
+offset_bottom = 525.12
+
+[node name="Grass" type="TextureRect" parent="tool/GrassBounds" unique_id=1061422298]
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 600.0
+scale = Vector2(0.067, 0.067)
+texture = ExtResource("2_30sqi")
+stretch_mode = 1
+
+[node name="home" type="Control" parent="." unique_id=73839799]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_r37kj")
+
+[node name="Web" type="TextureRect" parent="home" unique_id=1976057647]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_gvfsm")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="home/Web" unique_id=896643964]
+script = ExtResource("4_gs3ir")
+
+[node name="Temp" type="Label" parent="home/Web/HTTPRequest" unique_id=1766246613]
+offset_left = 133.0
+offset_top = 560.0
+offset_right = 312.0
+offset_bottom = 591.0
+text = "100.0 F"
+label_settings = SubResource("LabelSettings_kj5ws")
+horizontal_alignment = 1
+
+[node name="Humid" type="Label" parent="home/Web/HTTPRequest" unique_id=449790694]
+offset_left = 440.0
+offset_top = 560.0
+offset_right = 619.0
+offset_bottom = 591.0
+text = "100"
+label_settings = SubResource("LabelSettings_kj5ws")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="home/Web/HTTPRequest" unique_id=208080696]
+offset_left = 290.0
+offset_top = 228.0
+offset_right = 778.0
+offset_bottom = 311.0
+icon = ExtResource("6_gs3ir")
+flat = true
+
+[node name="dropDown" type="TextureRect" parent="home/Web/HTTPRequest/Button" unique_id=172709210]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1000.0
+offset_right = 483.0
+offset_bottom = 1480.0
+texture = ExtResource("7_23jqw")
+
+[node name="Modesto" type="Button" parent="home/Web/HTTPRequest/Button/dropDown" unique_id=965214351]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 94.0
+offset_right = 208.0
+offset_bottom = 149.0
+
+[node name="Temp2" type="Label" parent="home/Web/HTTPRequest/Button/dropDown/Modesto" unique_id=1647445020]
+layout_mode = 0
+offset_top = 14.0
+offset_right = 189.0
+offset_bottom = 45.0
+text = "Modesto"
+label_settings = SubResource("LabelSettings_kj5ws")
+horizontal_alignment = 1
+
+[node name="Visalia" type="Button" parent="home/Web/HTTPRequest/Button/dropDown" unique_id=1120929110]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 167.0
+offset_right = 210.0
+offset_bottom = 222.0
+
+[node name="Temp2" type="Label" parent="home/Web/HTTPRequest/Button/dropDown/Visalia" unique_id=1141900935]
+layout_mode = 0
+offset_top = 14.0
+offset_right = 189.0
+offset_bottom = 45.0
+text = "Visalia"
+label_settings = SubResource("LabelSettings_kj5ws")
+horizontal_alignment = 1
+
+[node name="Fresno" type="Button" parent="home/Web/HTTPRequest/Button/dropDown" unique_id=1153846099]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 241.0
+offset_right = 208.0
+offset_bottom = 296.0
+
+[node name="Temp2" type="Label" parent="home/Web/HTTPRequest/Button/dropDown/Fresno" unique_id=1158589152]
+layout_mode = 0
+offset_top = 14.0
+offset_right = 189.0
+offset_bottom = 45.0
+text = "Fresno"
+label_settings = SubResource("LabelSettings_kj5ws")
+horizontal_alignment = 1
+
+[node name="Clovis" type="Button" parent="home/Web/HTTPRequest/Button/dropDown" unique_id=383139061]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 96.0
+offset_right = 428.0
+offset_bottom = 151.0
+
+[node name="Temp2" type="Label" parent="home/Web/HTTPRequest/Button/dropDown/Clovis" unique_id=1923544680]
+layout_mode = 0
+offset_top = 14.0
+offset_right = 189.0
+offset_bottom = 45.0
+text = "Clovis"
+label_settings = SubResource("LabelSettings_kj5ws")
+horizontal_alignment = 1
+
+[node name="Merced" type="Button" parent="home/Web/HTTPRequest/Button/dropDown" unique_id=546126048]
+layout_mode = 0
+offset_left = 243.0
+offset_top = 167.0
+offset_right = 430.0
+offset_bottom = 222.0
+
+[node name="Temp2" type="Label" parent="home/Web/HTTPRequest/Button/dropDown/Merced" unique_id=261727730]
+layout_mode = 0
+offset_top = 14.0
+offset_right = 189.0
+offset_bottom = 45.0
+text = "Merced"
+label_settings = SubResource("LabelSettings_kj5ws")
+horizontal_alignment = 1
+
+[node name="Mantica" type="Button" parent="home/Web/HTTPRequest/Button/dropDown" unique_id=790002540]
+layout_mode = 0
+offset_left = 243.0
+offset_top = 241.0
+offset_right = 430.0
+offset_bottom = 296.0
+
+[node name="Temp2" type="Label" parent="home/Web/HTTPRequest/Button/dropDown/Mantica" unique_id=972250692]
+layout_mode = 0
+offset_top = 14.0
+offset_right = 189.0
+offset_bottom = 45.0
+text = "Mantica"
+label_settings = SubResource("LabelSettings_kj5ws")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="home" unique_id=2072271115]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="text_changed" from="tool/HeightBox/Height" to="." method="_on_height_text_changed"]
+[connection signal="text_changed" from="tool/LengthBox/Length" to="." method="_on_length_text_changed"]
+[connection signal="pressed" from="home/Web/HTTPRequest/Button" to="home/Web/HTTPRequest" method="_on_button_pressed"]
+[connection signal="pressed" from="home/Web/HTTPRequest/Button/dropDown/Modesto" to="home/Web/HTTPRequest" method="_on_modesto_pressed"]
+[connection signal="pressed" from="home/Web/HTTPRequest/Button/dropDown/Fresno" to="home/Web/HTTPRequest" method="_on_fresno_pressed"]
+[connection signal="pressed" from="home/Web/HTTPRequest/Button/dropDown/Clovis" to="home/Web/HTTPRequest" method="_on_clovis_pressed"]
+[connection signal="pressed" from="home/Web/HTTPRequest/Button/dropDown/Merced" to="home/Web/HTTPRequest" method="_on_merced_pressed"]
+[connection signal="pressed" from="home/Web/HTTPRequest/Button/dropDown/Mantica" to="home/Web/HTTPRequest" method="_on_mantica_pressed"]
+[connection signal="pressed" from="home/Button" to="home" method="_on_button_pressed"]

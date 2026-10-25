@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://b8q8aaln0fwro"]
 
+[ext_resource type="PackedScene" uid="uid://c55kkun5uow0l" path="res://Scenes/window.tscn" id="1_jjgbg"]
+
 [node name="Main" type="Node" unique_id=174384205]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2079268616]
 offset_right = 1160.0
 offset_bottom = 656.0
 color = Color(0.5673677, 0.56736773, 0.56736773, 1)
+
+[node name="Window" parent="." unique_id=1343021000 instance=ExtResource("1_jjgbg")]
