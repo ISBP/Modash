@@ -1,7 +1,7 @@
 extends HTTPRequest
-@onready var temp: Label = $Temp
-@onready var humid: Label = $Humid
-@onready var drop_down: TextureRect = $Button/dropDown
+@onready var temp: Label = $"../Temp"
+@onready var humid: Label = $"../Humid"
+@onready var drop_down: TextureRect = $"../Button/dropDown"
 
 const offScreen = 1000
 # Called when the node enters the scene tree for the first time.
@@ -20,7 +20,7 @@ func _on_request_completed(result, response_code, headers, body):
 func setCity(name:String):
 	if parsed:
 		temp.text = str(json[str(name)+"Temp"]) + " F"
-		humid.text = str(json[str(name)+"Humid"]) + " %"
+		humid.text = str(json[str(name)+"Humid"]) + " "
 
 
 func _on_button_pressed() -> void:

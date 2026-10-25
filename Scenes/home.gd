@@ -13,4 +13,4 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	window.position.y += 720
+	window.position.y += 1080
